@@ -18,15 +18,17 @@ body {
    전체 레이아웃 / 기본 폰트
    ================================ */
 body {
-  margin-left: 160px; /* 왼쪽 사이드바 폭만큼 여백 */
+  margin-left: 160px; /* 왼쪽 타임라인 폭만큼 여백 */
   font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  background: radial-gradient(
-    circle at top,
-    #e4f2ff 0,
-    #f7f9ff 45%,
-    #eef2f7 100%
-  );
+
+  /* === 지도 배경 이미지 === */
+  background-image: url("images/cheonan-map-bg.jpg");
+  background-size: cover;          /* 화면을 꽉 채우게 */
+  background-position: center;     /* 가운데 기준으로 정렬 */
+  background-repeat: no-repeat;
+  background-attachment: fixed;    /* 스크롤해도 배경은 고정 */
+
   scroll-behavior: smooth;
   color: #111827;
 }
@@ -571,4 +573,5 @@ section.spot.visible {
   opacity: 0.12;
   pointer-events: none;
 }
+
 
