@@ -1,0 +1,574 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 초기 기본 색상(첫 페이지: 천안 소개) */
+  --accent-color: #0072CE;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* ================================
+   전체 레이아웃 / 기본 폰트
+   ================================ */
+body {
+  margin-left: 160px; /* 왼쪽 사이드바 폭만큼 여백 */
+  font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: radial-gradient(
+    circle at top,
+    #e4f2ff 0,
+    #f7f9ff 45%,
+    #eef2f7 100%
+  );
+  scroll-behavior: smooth;
+  color: #111827;
+}
+
+/* 타이틀 계열은 Do Hyeon */
+header h1,
+.spot-title,
+.section-title {
+  font-family: "Do Hyeon", "Noto Sans KR", sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* 버튼 포커스 아웃라인 제거 */
+button {
+  outline: none;
+  border: none;
+}
+button:focus {
+  outline: none;
+}
+
+/* ================================
+   왼쪽 타임라인 바
+   ================================ */
+.color-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 100vh;
+  background: #0b1120;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.bar-track {
+  position: relative;
+  width: 72px;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 999px;
+  transition: background 0.3s;
+}
+
+/* 큰 동그라미들 */
+.bulge {
+  position: absolute;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform 0.25s ease-out, background 0.25s ease-out;
+}
+
+.bulge-0 { top: 12%; }
+.bulge-1 { top: 32%; }
+.bulge-2 { top: 52%; }
+.bulge-3 { top: 72%; }
+.bulge-4 { top: 90%; }
+
+/* 현재 섹션 원 */
+.bulge.active {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: color-mix(in srgb, var(--accent-color) 60%, #ffffff 40%);
+}
+
+/* 가운데 큰 라벨 원 */
+.label-circle {
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  width: 124px;
+  height: 124px;
+  transform: translate(-50%, -50%);
+  background: var(--accent-color);
+  border-radius: 50%;
+  z-index: 12;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: top 0.35s, background 0.3s;
+}
+
+.label-inner {
+  width: 96px;
+  height: 96px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  font-family: "Do Hyeon", "Noto Sans KR", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.5;
+  color: #111827;
+}
+
+/* ================================
+   헤더
+   ================================ */
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.city-logo {
+  height: 42px;
+  object-fit: contain;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--accent-color);
+}
+
+header p {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* ================================
+   메인 & 스크롤 영역
+   ================================ */
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 18px 32px;
+  height: calc(100vh - 60px);
+}
+
+.content {
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y center;
+  padding-bottom: 40px;
+}
+
+/* 스크롤바 커스텀 (크롬 계열) */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.content::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.7);
+  border-radius: 999px;
+}
+.content::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.9);
+}
+
+/* ================================
+   섹션 카드
+   ================================ */
+section.spot {
+  scroll-snap-align: start;
+  min-height: 100%;
+  border-radius: 24px;
+  position: relative;
+  margin-bottom: 26px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-color) 35%, #ffffff),
+    color-mix(in srgb, var(--accent-color) 82%, #111827)
+  );
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+section.spot.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 안쪽 내용 카드 */
+.spot-inner {
+  position: relative;
+  z-index: 0;
+  padding: 30px 30px 30px 38px; /* 왼쪽 라인 들어가서 살짝 여유 */
+  min-height: 100%;
+  border-radius: 22px;
+  border-left: 5px solid color-mix(in srgb, var(--accent-color) 70%, #ffffff 30%);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 255, 255, 0.9)
+  );
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+  overflow: hidden;
+}
+
+/* 전통 패턴 오버레이 (원하면 이미지 교체) */
+.spot-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/pattern-cloud.png");
+  background-repeat: repeat;
+  background-size: 260px 260px;
+  opacity: 0.07;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spot-inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 상단 헤더 카드 */
+.spot-header {
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(248, 250, 252, 0.98),
+    rgba(241, 245, 249, 0.98)
+  );
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.spot-header::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 122, 26, 0.4),
+    transparent
+  );
+}
+
+.tag {
+  display: inline-block;
+  background: #e5e7eb;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+
+.spot-title {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.spot-desc {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+
+/* 본문 레이아웃 */
+.spot-body {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 26px;
+  margin-top: 8px;
+}
+
+.spot-text p,
+.spot-text ul {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.spot-text ul {
+  padding-left: 18px;
+}
+.spot-text ul li {
+  margin-bottom: 4px;
+}
+
+/* 지도 버튼 */
+.map-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-color);
+  background: #fff;
+  color: var(--accent-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.map-btn:hover {
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+/* 섹션 타이틀 + 아이콘 */
+.section-title {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111827;
+}
+
+.section-title span.icon {
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #e5edf9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 소제목 사이 구분선 */
+.separator {
+  margin: 24px 0 15px;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+  opacity: 0.9;
+}
+
+.separator span {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(148, 163, 184, 0.8);
+}
+
+/* ================================
+   사진 슬라이더
+   ================================ */
+.photo-slider {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: visible;
+  background: #000;
+  margin-top: 10px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.45);
+}
+
+/* 👉 여기가 중요 */
+.photo-slider img {
+  width: 100%;
+  height: 200%;
+  display: none;          /* 기본은 안 보이게 */
+  object-fit: contain;    /* 사진 안 잘리게 */
+  background: #000;       /* 남는 여백은 검정으로 */
+}
+
+/* active 붙은 것만 보이게 */
+.photo-slider img.active {
+  display: block;
+}
+/* 슬라이더 버튼 */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: #111827;
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  opacity: 0.9;
+}
+
+/* 왼쪽 버튼: 슬라이더 밖으로 24px */
+.slider-btn.prev {
+  left: -24px;
+}
+
+/* 오른쪽 버튼: 슬라이더 밖으로 24px */
+.slider-btn.next {
+  right: -24px;
+}
+
+.slider-btn:hover {
+  background: rgba(15, 23, 42, 0.95);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* 슬라이더 점(dots) */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.slider-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(249, 250, 251, 0.65);
+  cursor: pointer;
+  transition: transform 0.18s, background 0.18s;
+}
+
+.slider-dot.active {
+  background: #ffffff;
+  transform: scale(1.35);
+}
+
+/* ================================
+   TOP 버튼
+   ================================ */
+.top-btn {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.35);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 120;
+}
+
+.top-btn:hover {
+  background: color-mix(in srgb, var(--accent-color) 75%, #ffffff 25%);
+}
+
+/* ================================
+   반응형
+   ================================ */
+@media (max-width: 900px) {
+  body {
+    margin-left: 0;
+  }
+
+  .color-bar {
+    display: none;
+  }
+
+  main {
+    padding: 16px;
+    height: auto;
+  }
+
+  .content {
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .spot-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   모든 섹션에 적용할 도로/라인 패턴
+   ========================================= */
+.spot {
+  position: relative;
+  overflow: hidden;
+}
+
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  background-position: right bottom;
+  opacity: 0.12;
+  pointer-events: none;
+}
+

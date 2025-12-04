@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cheonan City Guide</title>
+
+  <!-- 폰트: 타이틀용 Do Hyeon, 본문용 Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========================
+       왼쪽 타임라인
+       ======================== -->
+  <div class="color-bar">
+    <div class="bar-track">
+      <!-- 각 장소에 대응하는 원 -->
+      <button class="bulge bulge-0" data-index="0" aria-label="천안 소개"></button>
+      <button class="bulge bulge-1" data-index="1" aria-label="독립기념관"></button>
+      <button class="bulge bulge-2" data-index="2" aria-label="천안 고속터미널"></button>
+      <button class="bulge bulge-3" data-index="3" aria-label="천안 삼거리공원"></button>
+      <button class="bulge bulge-4" data-index="4" aria-label="유관순 열사 유적지"></button>
+
+      <!-- 가운데 큰 라벨 -->
+      <div id="labelCircle" class="label-circle">
+        <div class="label-inner">
+          <span id="labelText">천안 소개</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================
+       메인 콘텐츠
+       ======================== -->
+  <main>
+    <header>
+      <div class="logo-title">
+        <img src="images/cheonan-logo.png" alt="천안시 로고" class="city-logo" />
+        <div>
+          <h1>Cheonan City Guide</h1>
+          <p>천안시 브랜드 컬러와 함께 보는 도시·명소 안내</p>
+        </div>
+      </div>
+      <p>천안의 분위기와 대표 명소들을 한 번에 살펴볼 수 있는 스크롤형 가이드입니다.</p>
+    </header>
+
+    <div class="content">
+      <!-- ========================
+           0. 천안 도시 소개 (새 첫 페이지)
+           ======================== -->
+      <section
+        class="spot"
+        id="spot0"
+        data-color="#0072CE"
+        data-name="천안 소개"
+      >
+        <div class="spot-inner">
+          <div class="spot-header">
+            <span class="tag">충청권의 중심 · 역사와 문화의 도시</span>
+            <h2 class="spot-title">천안, 이런 도시예요</h2>
+            <p class="spot-desc">
+              천안은 수도권과 충청권을 잇는 교통의 요지이자, 독립기념관과 유관순 열사 유적지로
+              대표되는 역사 도시입니다. 도심 속 현대 예술이 살아 있는 아라리오 광장, 축제와 휴식이
+              공존하는 천안 삼거리공원까지, 하루 코스로는 다 담기지 않는 다양한 매력을 지니고 있습니다.
+            </p>
+          </div>
+
+          <div class="spot-body">
+            <div class="spot-text">
+              <h3 class="section-title">
+                <span class="icon">🏙️</span> 천안을 한눈에
+              </h3>
+              <p>
+                · <b>위치</b> – 수도권과 충청권의 경계에 자리한 도시로, 고속도로·철도망이 잘 발달해 있습니다.<br />
+                · <b>도시 성격</b> – 대학가와 주거지가 어우러진 젊은 분위기와, 오래된 역사 유적이 공존하는 도시입니다.<br />
+                · <b>대표 키워드</b> – 독립운동, 호두과자, 흥타령 축제, 교통 중심지.
+              </p>
+
+              <div class="separator"><span>📍</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">⭐</span> 천안을 대표하는 명소
+              </h3>
+              <ul>
+                <li><b>독립기념관</b> – 우리 민족의 독립 정신을 기리는 대규모 역사 교육 공간</li>
+                <li><b>아라리오 광장</b> – 조형물과 갤러리가 어우러진 현대 예술 문화 광장</li>
+                <li><b>천안 삼거리공원</b> – ‘흥타령 축제’로 유명한 시민 휴식·축제의 장</li>
+                <li><b>유관순 열사 유적지</b> – 항일 독립운동의 상징을 기억하는 역사 공간</li>
+              </ul>
+
+              <div class="separator"><span>🚉</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🚉</span> 교통과 접근성
+              </h3>
+              <p>
+                · <b>KTX·ITX·전철</b>이 지나는 <b>천안역·천안아산역</b>을 중심으로 전국 각지와 연결됩니다.<br />
+                · 시내버스 노선이 잘 갖춰져 있어, 독립기념관·고속터미널 일대·삼거리공원 등 주요 명소를
+                  대중교통으로 편리하게 이동할 수 있습니다.<br />
+                · 고속도로 IC(천안·천안동남 등)를 통해 자가용으로도 접근성이 좋은 도시입니다.
+              </p>
+
+              <a
+                href="https://map.naver.com/p/search/%EC%B2%9C%EC%95%88%EC%8B%9C"
+                target="_blank"
+                class="map-btn"
+              >
+                <span>🗺</span> 천안 위치 지도 보기
+              </a>
+            </div>
+
+            <div class="spot-visual">
+              <div class="photo-slider" data-slider="0">
+                <!-- 파일 이름은 프로젝트에 맞게 교체해서 사용해도 됨 -->
+                <img src="images/cheonan/cheonan-1.jpg" class="active" alt="천안 도심 전경">
+                <img src="images/cheonan/cheonan-2.jpg" alt="천안의 야경과 도심 모습">
+                <img src="images/cheonan/cheonan-3.jpg" alt="천안의 자연과 공원 풍경">
+
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================
+           1. 독립기념관
+           ======================== -->
+      <section
+        class="spot"
+        id="spot1"
+        data-color="#E8413A"
+        data-name="독립기념관"
+      >
+        <div class="spot-inner">
+          <div class="spot-header">
+            <span class="tag">대한민국 근현대사 교육 1번지</span>
+            <h2 class="spot-title">독립기념관</h2>
+            <p class="spot-desc">
+              우리 민족의 독립 정신과 역사를 한눈에 볼 수 있는 대표적인 역사 교육 공간입니다.
+              웅장한 겨레의 집과 넓은 전시관, 야외 공원이 어우러져 하루 종일 둘러봐도 아쉽지 않은 곳입니다.
+            </p>
+          </div>
+
+          <div class="spot-body">
+            <div class="spot-text">
+              <h3 class="section-title">
+                <span class="icon">📚</span> 꼭 둘러볼 포인트
+              </h3>
+              <ul>
+                <li>일제강점기부터 광복까지의 역사를 체계적으로 정리한 상설 전시관</li>
+                <li>아이들과 함께 역사 체험을 할 수 있는 다양한 체험 프로그램</li>
+                <li>기념관 뒤편으로 이어지는 산책로와 전망 포인트</li>
+              </ul>
+
+              <div class="separator"><span>🍽️</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🍽️</span> 근처 맛집 추천
+              </h3>
+              <ul>
+                <li><b>전통 한식집</b> – 제육볶음, 된장찌개 등 정갈한 한식 한 상</li>
+                <li><b>수제비·칼국수집</b> – 뜨끈한 국물과 쫄깃한 면발이 인기</li>
+              </ul>
+
+              <div class="separator"><span>🚌</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🚌</span> 대중교통 / <span class="icon">🅿</span> 주차
+              </h3>
+              <p>
+                · <b>버스</b>: 천안역·터미널에서 출발하는 독립기념관 방면 시내버스 이용<br />
+                · <b>주차</b>: 넓은 유료·무료 주차장이 마련되어 있으며, 자가용 방문이 매우 편리합니다.
+              </p>
+
+              <a
+                href="https://map.naver.com/p/search/%EB%8F%85%EB%A6%BD%EA%B8%B0%EB%85%90%EA%B4%80"
+                target="_blank"
+                class="map-btn"
+              >
+                <span>🗺</span> 지도 보기
+              </a>
+            </div>
+
+            <div class="spot-visual">
+              <div class="photo-slider" data-slider="1">
+                <img src="images/independence/independence-1.jpg" class="active" alt="독립기념관 겨레의 집 전경">
+                <img src="images/independence/independence-2.jpg" alt="독립기념관 전시관 내부">
+                <img src="images/independence/independence-3.jpg" alt="독립기념관 야외 공원과 산책로">
+
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================
+           2. 천안 고속터미널 일대
+           ======================== -->
+      <section
+        class="spot"
+        id="spot2"
+        data-color="#F59E0B"
+        data-name="천안 고속터미널"
+      >
+        <div class="spot-inner">
+          <div class="spot-header">
+            <span class="tag">청년 상권과 교통이 만나는 터미널 주변</span>
+            <h2 class="spot-title">천안 고속터미널 · 도심 상권</h2>
+            <p class="spot-desc">
+              천안 고속터미널 일대는 시외·고속버스가 오가는 교통의 중심지이면서,
+              대형 쇼핑몰과 먹거리, 조형물이 함께 모여 있는 천안 대표 도심 상권입니다.
+              버스를 타고 도착해 바로 쇼핑·식사·문화생활까지 한 번에 즐길 수 있는 ‘청년 핫플’ 공간이에요.
+            </p>
+          </div>
+
+          <div class="spot-body">
+            <div class="spot-text">
+              <div class="separator"><span>✨</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">✨</span> 이런 점이 좋아요
+              </h3>
+              <p>
+                · <b>교통 허브</b>: 천안 시내·시외버스가 모이는 거점으로, 천안 여러 지역과 타 도시로 이동하기 좋습니다.<br />
+                · <b>쇼핑·문화</b>: 고속터미널과 연결된 대형 쇼핑몰, 영화관, 카페·패션 매장이 밀집해 있습니다.<br />
+                · <b>도심 야경</b>: 저녁이 되면 조명이 켜진 조형물과 건물 외관이 만들어내는 도시적인 야경을 감상할 수 있어요.
+              </p>
+
+              <div class="separator"><span>🍽️</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🍽️</span> 근처 맛집 · 놀거리
+              </h3>
+              <ul>
+                <li><b>터미널 지하·지상 상가</b> – 분식, 국밥, 분식집, 간단한 한 끼를 해결하기 좋은 맛집들이 모여 있어요.</li>
+                <li><b>쇼핑몰 푸드코트 & 레스토랑</b> – 파스타, 스테이크, 한식뷔페 등 다양한 메뉴를 한곳에서 선택할 수 있습니다.</li>
+                <li><b>카페 & 디저트</b> – 감성적인 카페, 빵집, 디저트 카페가 많아 친구들과 수다 떨기 좋은 공간입니다.</li>
+              </ul>
+
+              <div class="separator"><span>🚌</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🚌</span> 대중교통 / <span class="icon">🅿</span> 주차
+              </h3>
+              <p>
+                · <b>버스</b>: 전국 각지로 향하는 고속·시외버스가 수시로 운행되며, 시내버스 정류장도 인근에 밀집해 있습니다.<br />
+                · <b>주차</b>: 터미널 및 인근 쇼핑몰 주차장을 이용할 수 있어 자가용 방문도 편리합니다.<br />
+                · 터미널을 기준으로 다른 천안 명소(독립기념관, 삼거리공원 등)로 이동하는 여행 코스를 짜기에도 좋아요.
+              </p>
+
+              <a
+                href="https://map.naver.com/p/search/%EC%B2%9C%EC%95%88%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90"
+                target="_blank"
+                class="map-btn"
+              >
+                <span>🗺</span> 지도 보기
+              </a>
+            </div>
+
+            <div class="spot-visual">
+              <div class="photo-slider" data-slider="2">
+                <img src="images/terminal/terminal-1.jpg" class="active" alt="천안 고속터미널과 주변 조형물 전경">
+                <img src="images/terminal/terminal-2.jpg" class="active" alt="천안 고속터미널과 주변 조형물 전경">
+                <img src="images/terminal/terminal-3.jpg" class="active" alt="천안 고속터미널과 주변 조형물 전경">
+
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+<!-- ========================
+           3. 천안 삼거리공원
+           ======================== -->
+      <section
+        class="spot"
+        id="spot3"
+        data-color="#0F766E"
+        data-name="천안 삼거리공원"
+      >
+        <div class="spot-inner">
+          <div class="spot-header">
+            <span class="tag">역사와 축제가 공존하는 공원</span>
+            <h2 class="spot-title">천안 삼거리공원</h2>
+            <p class="spot-desc">
+              “흥타령 축제”로 유명한 천안 삼거리 일대를 대표하는 공원으로, 넓은 잔디와 산책로, 공연장이 조성되어
+              사계절 시민들의 휴식과 문화 활동의 중심지 역할을 합니다.
+            </p>
+          </div>
+
+          <div class="spot-body">
+            <div class="spot-text">
+              <h3 class="section-title">
+                <span class="icon">🌳</span> 이렇게 즐겨보세요
+              </h3>
+              <p>
+                · 넓은 잔디광장에서 가족 단위 피크닉을 즐기기 좋습니다.<br />
+                · 축제 기간에는 각종 공연과 체험 부스가 운영되어 하루 종일 머물러도 지루하지 않습니다.<br />
+                · 공원 산책로를 따라 가볍게 산책하거나 러닝 코스로 이용하는 시민들도 많습니다.
+              </p>
+
+              <div class="separator"><span>🍽️</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🍽️</span> 근처 맛집 추천
+              </h3>
+              <ul>
+                <li><b>천안 명물 호두과자 거리</b> – 간단한 간식으로 즐기기 좋은 빵집과 카페</li>
+                <li><b>한식뷔페 & 국밥집</b> – 포만감 있는 식사를 할 수 있는 든든한 한식 식당</li>
+              </ul>
+
+              <div class="separator"><span>🚌</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🚌</span> 대중교통 / <span class="icon">🅿</span> 주차
+              </h3>
+              <p>
+                · <b>버스</b>: 천안 시내 곳곳에서 삼거리공원 방면 버스를 이용하면 쉽게 접근 가능합니다.<br />
+                · <b>주차</b>: 공원 내·외부에 공영 주차장이 조성되어 있으며, 축제 기간에는 임시 주차장이 추가 운영되기도 합니다.
+              </p>
+
+              <a
+                href="https://map.naver.com/p/search/%EC%B2%9C%EC%95%88%20%EC%82%BC%EA%B1%B0%EB%A6%AC%EA%B3%B5%EC%9B%90"
+                target="_blank"
+                class="map-btn"
+              >
+                <span>🗺</span> 지도 보기
+              </a>
+            </div>
+
+            <div class="spot-visual">
+              <div class="photo-slider" data-slider="3">
+                <img src="images/samgeori-park/samgeori-1.jpg" class="active" alt="천안 삼거리공원 전경">
+                <img src="images/samgeori-park/samgeori-2.jpg" alt="축제 기간의 무대와 공연 모습">
+                <img src="images/samgeori-park/samgeori-3.jpg" alt="삼거리공원 산책로와 나무숲">
+
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================
+           4. 유관순 열사 유적지
+           ======================== -->
+      <section
+        class="spot"
+        id="spot4"
+        data-color="#6366F1"
+        data-name="유관순 열사 유적지"
+      >
+        <div class="spot-inner">
+          <div class="spot-header">
+            <span class="tag">항일 독립운동의 상징</span>
+            <h2 class="spot-title">유관순 열사 유적지</h2>
+            <p class="spot-desc">
+              3·1 운동의 상징적 인물인 유관순 열사의 생가와 기념관이 자리한 공간으로, 조국 독립을 위해 헌신한
+              한 소녀의 삶과 정신을 되새길 수 있는 장소입니다.
+            </p>
+          </div>
+
+          <div class="spot-body">
+            <div class="spot-text">
+              <h3 class="section-title">
+                <span class="icon">🏛️</span> 기억해야 할 역사
+              </h3>
+              <p>
+                · 유관순 열사의 생가와 기념관, 추모비 등이 한 공간에 모여 있어 역사 교육 장소로 많이 찾는 곳입니다.<br />
+                · 전시관에서는 유관순 열사의 생애와 독립운동 관련 자료를 자세히 살펴볼 수 있습니다.<br />
+                · 주변이 비교적 조용하고 한적해, 엄숙한 분위기 속에서 차분히 둘러보기 좋습니다.
+              </p>
+
+              <div class="separator"><span>🍽️</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🍽️</span> 근처 맛집 추천
+              </h3>
+              <ul>
+                <li><b>시골 밥상 한정식</b> – 제철 나물과 반찬이 구성된 한정식 메뉴</li>
+                <li><b>칼국수·수제비 전문점</b> – 근처 주민들이 자주 찾는 숨은 맛집</li>
+              </ul>
+
+              <div class="separator"><span>🚌</span></div>
+
+              <h3 class="section-title">
+                <span class="icon">🚌</span> 대중교통 / <span class="icon">🅿</span> 주차
+              </h3>
+              <p>
+                · <b>버스</b>: 천안 시내에서 유관순 열사 유적지 방면 시내버스를 이용해 인근 정류장에서 하차 후 도보 이동<br />
+                · <b>주차</b>: 유적지 입구 인근에 소규모 무료 주차장이 마련되어 있으며, 승용차 위주로 이용하기 좋습니다.<br />
+                · 단체 방문 시에는 버스로 이동 후, 인근 도로·주차 공간에 정차·대기하는 방식을 많이 사용합니다.
+              </p>
+
+              <a
+                href="https://map.naver.com/p/search/%EC%9C%A0%EA%B4%80%EC%88%9C%20%EC%97%B4%EC%82%AC%20%EC%9C%A0%EC%A0%81%EC%A7%80"
+                target="_blank"
+                class="map-btn"
+              >
+                <span>🗺</span> 지도 보기
+              </a>
+            </div>
+
+            <div class="spot-visual">
+              <div class="photo-slider" data-slider="4">
+                <img src="images/yugwansun/yugwansun-1.jpg" class="active" alt="유관순 열사 동상">
+                <img src="images/yugwansun/yugwansun-2.jpg" alt="기념관 전경">
+                <img src="images/yugwansun/yugwansun-3.jpg" alt="유적지 주변 산책로">
+
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 맨 위로 가기 버튼 -->
+  <button id="backToTop" class="top-btn">▲ TOP</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
